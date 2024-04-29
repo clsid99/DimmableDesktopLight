@@ -7,9 +7,24 @@ API機能
 
 ・照明ON
 ・照明OFF
-・モード（アクティブ ナチュラル リラックス）
+  cmd=power
+  param=on/off
+
+・モード（ナチュラル リラックス）
+  cmd=mode
+  param=natural/relax
+
 ・明るさ
+  cmd=luminance
+  param=0-100
+
 ・色相
 ・彩度
 ・タイマーOFF
 ・各LEDの色データ受付
+
+
+cmd
+param 
+
+

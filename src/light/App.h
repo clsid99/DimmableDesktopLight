@@ -8,7 +8,9 @@
 #include <ESP8266WebServer.h>
 #include "Color.h"
 
-// #include <DNSServer.h>
+#define PIN 14    // LED
+#define NUMLED 32 // LED
+#define COUNTER_START 100
 
 class App;
 extern App g_app;
@@ -16,9 +18,34 @@ extern App g_app;
 class App
 {
 private:
+    /// @brief モード列挙
+    enum Modes
+    {
+        Natural,
+        Relax,
+        Manual
+    };
+
+private:
+    /// @brief モード
+    Modes m_mode;
+
+    /// @brief 輝度
+    float m_luminance;
+
+    /// @brief ON/OFF
+    boolean m_power;
+
+    /// @brief 自動OFFまでの秒数
+    int32_t m_autoOffSpan;
+
+private:
     Adafruit_NeoPixel m_pixels;
     ESP8266WebServer m_wserver;
     int m_deg;
+    ColorRGB m_lastColors[NUMLED];
+    ColorRGB m_nextColors[NUMLED];
+    int m_moveCounter;
 
 public:
     App();
@@ -34,6 +61,13 @@ private:
     void CheckWiFi();
     void handleNotFoundImpl();
     void handleAPIImpl();
+
+private: 
+    void LightConnecting ();
+    void LightConneced ();
+    void LightUpdate ();
+
+    void ModeUpdate ();
 };
 
 
