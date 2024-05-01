@@ -11,6 +11,7 @@
 #define PIN 14    // LED
 #define NUMLED 32 // LED
 #define COUNTER_START 100
+#define CONFIG_MAGIC 0x12190001
 
 class App;
 extern App g_app;
@@ -25,13 +26,21 @@ private:
         Relax,
         Manual
     };
+    struct Settings
+    {
+        long configMagic;
+        /// @brief モード
+        Modes mode;
+
+        /// @brief 輝度
+        float luminance;
+        ColorHLS natural;
+        ColorHLS relax;
+    };
 
 private:
-    /// @brief モード
-    Modes m_mode;
-
-    /// @brief 輝度
-    float m_luminance;
+    /// @brief 
+    Settings m_settings;
 
     /// @brief ON/OFF
     boolean m_power;
@@ -39,12 +48,16 @@ private:
     /// @brief 自動OFFまでの秒数
     int32_t m_autoOffSpan;
 
+    time_t m_time;
+    time_t m_prev_time;
+
 private:
     Adafruit_NeoPixel m_pixels;
     ESP8266WebServer m_wserver;
     int m_deg;
     ColorRGB m_lastColors[NUMLED];
     ColorRGB m_nextColors[NUMLED];
+    ColorRGB m_manualColors[NUMLED];
     int m_moveCounter;
 
 public:
@@ -58,7 +71,7 @@ public:
 
 private:
     void ConnectWiFi();
-    void CheckWiFi();
+    void CheckWiFi(boolean init = false);
     void handleNotFoundImpl();
     void handleAPIImpl();
 
@@ -66,8 +79,12 @@ private:
     void LightConnecting ();
     void LightConneced ();
     void LightUpdate ();
-
     void ModeUpdate ();
+    void CheckAutoOff ();
+
+private:
+    void LoadSettings ();
+    void SaveSettings ();
 };
 
 

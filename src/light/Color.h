@@ -80,7 +80,7 @@ HLStoRGB(short h, uint8_t il, uint8_t is, uint8_t *rr, uint8_t *gg, uint8_t *bb)
 
   while (h > 360)
     h -= 360;
-
+/*
   if (s == 0)
   {
     *rr = 0;
@@ -88,7 +88,7 @@ HLStoRGB(short h, uint8_t il, uint8_t is, uint8_t *rr, uint8_t *gg, uint8_t *bb)
     *bb = 0;
     return;
   }
-
+*/
   double m2 = (l < 0.5) ? l * (1 + s) : l + s - l * s,
          m1 = l * 2 - m2,
          tmp;

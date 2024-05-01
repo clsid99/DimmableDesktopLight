@@ -18,10 +18,19 @@ API機能
   cmd=luminance
   param=0-100
 
-・色相
-・彩度
-・タイマーOFF
 ・各LEDの色データ受付
+  cmd=manual
+  param=RRGGBBRRGGBB...x32
+  内部でいったんHLS化し輝度を積算後使用
+
+・タイマーOFF
+  cmd=autooff
+  param=seconds
+
+・デフォルト設定
+  cmd=natural/relax
+  param=HHLLSS
+
 
 
 cmd

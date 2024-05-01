@@ -1,31 +1,30 @@
-POST http://192.168.1.220/api?cmd=power&param=on HTTP/1.1
-content-type: application/json
-
-{
-
-}
+#############################
+GET http://192.168.1.220/api?cmd=power&param=on HTTP/1.1
 
 #############################
-POST http://192.168.1.220/api?cmd=power&param=off HTTP/1.1
-content-type: application/json
-
-{
-
-}
+GET http://192.168.1.220/api?cmd=power&param=off HTTP/1.1
 
 ###############################
-POST http://192.168.1.220/api?cmd=mode&param=natural HTTP/1.1
-content-type: application/json
-
-{
-
-}
+GET http://192.168.1.220/api?cmd=mode&param=natural HTTP/1.1
 
 ###############################
-POST http://192.168.1.220/api?cmd=mode&param=relax HTTP/1.1
-content-type: application/json
+GET http://192.168.1.220/api?cmd=mode&param=relax HTTP/1.1
 
-{
+###############################
+GET http://192.168.1.220/api?cmd=luminance&param=10 HTTP/1.1
 
-}
+###############################
+GET http://192.168.1.220/api?cmd=natural&param=A20000 HTTP/1.1
+
+###############################
+GET http://192.168.1.220/api?cmd=manual&param=FF00FF0000800000FFFF00FF0000FF0000FF00FF000000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF HTTP/1.1
+
+###############################
+GET http://192.168.1.220/api?cmd=manual&param=FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF HTTP/1.1
+
+###############################
+GET http://192.168.1.220/api?cmd=manual&param=8080800000000000FFFF00FF0000FF0000FF00FF000000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FF0000FFFFFFFF0FF0FF00FF00 HTTP/1.1
+
+###############################
+GET http://192.168.1.220/api?cmd=autooff&param=10 HTTP/1.1
 
